@@ -1,5 +1,5 @@
-apiversion: apps/v1
-kind: Deplpoyment
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: postgres-database
   labels:
@@ -13,12 +13,12 @@ spec:
       labels:
         app: postgres
     spec:
-      containeers:
+      containers:
         - name: postgres
           image: postgres
-          imagePullPolicy: Alwatys
+          imagePullPolicy: Always
           ports:
-            - containerPort 5432
+            - containerPort: 5432
       volumes:
         name: db-data
         emptyDir: {}\
