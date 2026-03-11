@@ -19,9 +19,8 @@ spec:
           imagePullPolicy: Always
           ports:
             - containerPort: 5432
+          volumeMounts:
+            - mountPath: /var/lib/postgresql/data
       volumes:
-        name: db-data
-        emptyDir: {}\
-        volumeMounts:
-          - mountPath: /var/lib/postgresql/data
-
+        - name: db-data
+          emptyDir: {}
