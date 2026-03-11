@@ -20,10 +20,9 @@ spec:
           imagePullPolicy: Always
           ports:
             - containerPort: 6379
-      volumes:
-        - name: redis-data
-          emptyDir: {}
-
           volumeMounts:
             - mountPath: /data
               name: redis-data
+      volumes:
+        - name: redis-data
+          emptyDir: {}

@@ -8,7 +8,7 @@ spec:
   type: NodePort
   selector:
     app: redis
-    ports:
-      - targetPort: 6379
-        port: 80
-        nodePort: 30004
+  ports:
+    - targetPort: 6379
+      port: 80
+      nodePort: 30004
