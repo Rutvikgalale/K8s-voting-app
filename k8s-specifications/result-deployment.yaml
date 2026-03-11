@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: result-app-deployment
+  labels:
+    app: result-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: result-app
+  template:
+    metadata:
+      labels:
+        app: result-app
+    spec:
+      containers:
+        - name: result-app
+          image: rutvikg/result-app
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80

@@ -1,0 +1,27 @@
+apiversion: apps/v1
+kind: Deplpoyment
+metadata:
+  name: postgres-database
+  labels:
+    app: postgres
+spec:
+  selector:
+    matchLabels:
+      app: postgres
+  template:
+    metadata:
+      labels:
+        app: postgres
+    spec:
+      containeers:
+        - name: postgres
+          image: postgres
+          imagePullPolicy: Alwatys
+          ports:
+            - containerPort 5432
+      volumes:
+        name: db-data
+        emptyDir: {}\
+        volumeMounts:
+          - mountPath: /var/lib/postgresql/data
+

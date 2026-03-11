@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: voting-app-deployment
+  labels:
+    app: voting-app
+spec:
+  replicas: 3
+  selector:
+    matchlabels:
+      app: voting-app
+  template:
+    metadata:
+      labels:
+        app: voting-app
+    spec:
+      containers:
+        - name: voting-app
+          image: rutvikg/voting-app
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
